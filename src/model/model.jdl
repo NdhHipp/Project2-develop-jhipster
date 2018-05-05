@@ -1,0 +1,25 @@
+
+entity Location{
+	name String required,
+	city String,
+    image ImageBlob,
+    introduction TextBlob required
+}
+
+entity Poster{
+	title String required maxlength(100),
+    image ImageBlob,
+    recommend TextBlob required
+}
+
+relationship ManyToOne{
+	Poster{location(name)} to Location{poster}
+}
+//
+
+//dto * with mapstruct
+
+paginate Location with infinite-scroll
+paginate Poster with pagination
+
+//angularSuffix * with mySuffix

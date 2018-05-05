@@ -1,0 +1,83 @@
+<div ng-cloak>
+
+      
+
+        <div class="row bg-grey">
+          
+            <div style="margin-left: 45px">
+                <h4><b>Những bài viết có liên quan</b></h4>
+            </div>
+            
+            <div class="col-sm-3">
+                <p class="inpost"><strong><i>Đảo Cô Tô</i></strong></p>
+                <ul class="news" ng-repeat="poster in vm.findiddesc | filter: {'title' : 'Cô Tô'}">
+                    <a><li ui-sref="poster-detail({id:poster.id})"><p>{{poster.title}}</p></li></a>
+                </ul>
+            </div>            
+            <div class="col-sm-3">
+                <p class="inpost"><strong><i>Bán đảo Sơn Trà</i></strong></p>
+                <ul class="news" ng-repeat="poster in vm.findiddesc | filter: {'title' : 'Sơn Trà'}">
+                    <a><li ui-sref="poster-detail({id:poster.id})"><p>{{poster.title}}</p></li></a>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <p class="inpost"><strong><i>Bà Nà Hill</i></strong></p>
+                <ul class="news" ng-repeat="poster in vm.findiddesc | filter: {'title' : 'Bà Nà'}">
+                    <a><li ui-sref="poster-detail({id:poster.id})"><p>{{poster.title}}</p></li></a>
+                </ul>
+            </div>    
+            <div class="col-sm-3">
+                <p class="inpost"><strong><i>Phố cổ Hội An</i></strong></p>
+                <ul class="news" ng-repeat="poster in vm.findiddesc | filter: {'title' : 'Hội An'}">
+                    <a><li ui-sref="poster-detail({id:poster.id})"><p>{{poster.title}}</p></li></a>
+                </ul>
+            </div>         
+      </div>
+      <div ng-app="ngAnimate">
+            <p class="animate"><input type="checkbox" ng-model="myCheck">xem thêm</p>
+                <div ng-show="myCheck">
+                    <ul ng-repeat="poster in vm.findiddesc">
+                        <a><li ui-sref="poster-detail({id:poster.id})"><p>{{poster.title}} ({{poster.location.name}})</p></li></a>
+                    </ul>
+                </div>
+      </div>
+
+        <hr>
+    <div class="contaner text-center">
+       <div class="row"
+          style="background-image: url(content/images/bg.jpg);
+               background-repeat: no-repeat;
+               background-attachment: fixed;
+               padding: 170px;
+               color: #fff;  
+                  font-family: Roboto, sans-serif;
+                  margin-top: 0%";>
+              <div>
+              <h2><strong>Chọn địa điểm du lịch cùng gia đình &amp; bạn bè</strong></h2>
+              <p>Cùng khám phá những địa điểm du lịch mà bạn yêu thích!</p>
+              <a href="https://dulichviet.com.vn/du-lich-tu-chon">Xem thêm</a>
+              </div>
+        </div>
+        
+        <hr>
+      
+        <div class="row bg-grey" >
+          <h2> <b>Chọn những nơi bạn muốn tới</b></h2>
+          <p>Tận hưởng kì nghỉ của bạn</p>
+          <div class="col-sm-3" ng-repeat="location in vm.findall">
+            <div class="thumbnail">
+              <a href="">
+                <div class="zoomin" ng-if="location.image">
+                  <a ng-click="vm.openFile(location.imageContentType, location.image)">
+                      <img data-ng-src="{{'data:' + location.imageContentType + ';base64,' + location.image}}" style="max-width: 100%" alt="location image" />
+                  </a>
+                </div>
+              </a>
+              <a ui-sref="location-detail({id:location.id})"><p><strong>{{location.name}}</strong></p></a>
+            </div>
+          </div>    
+        </div>
+
+      </div>
+  </div>
+  

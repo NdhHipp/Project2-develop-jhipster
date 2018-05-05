@@ -1,0 +1,26 @@
+
+{
+    "vtravelApp": {
+        "poster" : {
+            "home": {
+                "title": "Posters",
+                "createLabel": "Thêm mới một Poster",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Poster",
+                "search": "Tìm Poster"
+            },
+            "created": "Một Poster mới được tạo với định danh {{ param }}",
+            "updated": "Một Poster cập nhật với định danh {{ param }}",
+            "deleted": "Một Poster đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Poster {{ id }}?"
+            },
+            "detail": {
+                "title": "Poster"
+            },
+            "title": "Title",
+            "image": "Image",
+            "recommend": "Recommend",
+            "location": "Location"
+        }
+    }
+}

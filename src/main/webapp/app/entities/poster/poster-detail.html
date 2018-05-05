@@ -1,0 +1,40 @@
+
+<div class="container">
+    <div class="col-md-8" style="border-width: 1px; border-style: dashed; border-color: darkgrey">
+        <h3>{{vm.poster.title}}</h3>
+        <a ui-sref="location-detail({id:vm.poster.location.id})"><p>{{vm.poster.location.name}}</p></a>
+        <hr>
+        <jhi-alert-error></jhi-alert-error>
+           
+            <div ng-if="vm.poster.image" class="text-center">
+                <a ng-click="vm.openFile(vm.poster.imageContentType, vm.poster.image)">
+                    <img data-ng-src="{{'data:' + vm.poster.imageContentType + ';base64,' + vm.poster.image}}" style="max-width: 100%;" alt="poster image"/>
+                </a>
+            </div>
+        <hr>
+            <span>{{vm.poster.recommend}}</span>
+           
+            
+    </div>
+    <div class="col-md-3">
+        <div style="margin-bottom: 50px">
+        <button type="submit"
+                ui-sref="{{ vm.previousState }}"
+                class="btn btn-info">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+        </button>
+
+        <button type="button" ui-sref="poster-detail.edit({id:vm.poster.id})" class="btn btn-primary">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+        </button>
+        </div> 
+
+        <div class="text-center" style="border-width: 1px; border-style: dashed; border-color: darkgrey; background-color: darkseagreen; margin-bottom: 10px">
+            <h4>Bài viết mới</h4>
+        </div>
+        <div ng-repeat="poster in vm.findiddesc | limitTo:8" class="news">
+                <a ui-sref="poster-detail({id:poster.id})"><p>{{poster.title}}</p></a>
+        </div>
+    </div>
+</div>

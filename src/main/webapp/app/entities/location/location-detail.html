@@ -1,0 +1,28 @@
+
+<div>
+    <h3>{{vm.location.name}}</h3>
+    <span>{{vm.location.city}}</span>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+        <div>
+            <div ng-if="vm.location.image" style="margin-left: 80px">
+                <a ng-click="vm.openFile(vm.location.imageContentType, vm.location.image)">
+                    <img data-ng-src="{{'data:' + vm.location.imageContentType + ';base64,' + vm.location.image}}" style="max-width: 100%;" alt="location image"/>
+                </a>
+            </div>
+            <hr>
+
+            <span>{{vm.location.introduction}}</span>
+            <hr>
+        </div>
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="location-detail.edit({id:vm.location.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
